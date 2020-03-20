@@ -17,6 +17,10 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* reLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reLocationTests.m */; };
 		426AD93705F0BF418B9AB293 /* libPods-reLocationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A366F4125618CFCEEC7A671 /* libPods-reLocationTests.a */; };
+		5BB947AC2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
+		5BB947AD2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
+		5BB947AE2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
+		5BB947AF2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
 		B0FA2BEA88E43EF184EB4AA9 /* libPods-reLocation-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30049E62505F4270E036C11B /* libPods-reLocation-tvOSTests.a */; };
 		C7487A23CADAB87FBF2D58FC /* libPods-reLocation-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 019B6D448352C703E54556B3 /* libPods-reLocation-tvOS.a */; };
 		DA5DC3A978FFF4B40C570092 /* libPods-reLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D987390E5B3787731C28681D /* libPods-reLocation.a */; };
@@ -62,6 +66,7 @@
 		43F9312F1809348E78924C42 /* Pods-reLocationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocationTests.release.xcconfig"; path = "Target Support Files/Pods-reLocationTests/Pods-reLocationTests.release.xcconfig"; sourceTree = "<group>"; };
 		4479FB1BF394AD3C3E319083 /* Pods-reLocation-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocation-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-reLocation-tvOSTests/Pods-reLocation-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A366F4125618CFCEEC7A671 /* libPods-reLocationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reLocationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BB947AB2424F92200ED397A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1E347ED6CB49FB4BF8FDF06 /* Pods-reLocationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocationTests.debug.xcconfig"; path = "Target Support Files/Pods-reLocationTests/Pods-reLocationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C6C7F42A6BF71314BEE186 /* Pods-reLocation-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocation-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-reLocation-tvOSTests/Pods-reLocation-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D987390E5B3787731C28681D /* libPods-reLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reLocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +164,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				5BB947AB2424F92200ED397A /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* reLocation */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* reLocationTests */,
@@ -194,7 +200,6 @@
 				A1E347ED6CB49FB4BF8FDF06 /* Pods-reLocationTests.debug.xcconfig */,
 				43F9312F1809348E78924C42 /* Pods-reLocationTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +313,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -329,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB947AD2424F92200ED397A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +345,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				5BB947AC2424F92200ED397A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				5BB947AE2424F92200ED397A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB947AF2424F92200ED397A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
