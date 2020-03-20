@@ -28,7 +28,7 @@ import Map from './components/Map';
 import firebase from 'firebase';
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     var firebaseConfig = {
       apiKey: 'XXXXXXXXXXXXXX',
       authDomain: 'relocation-1ac3d.firebaseapp.com',
