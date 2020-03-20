@@ -17,10 +17,14 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* reLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reLocationTests.m */; };
 		426AD93705F0BF418B9AB293 /* libPods-reLocationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A366F4125618CFCEEC7A671 /* libPods-reLocationTests.a */; };
+
+		5E848FBB2423D00500F92F16 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E848FBA2423D00500F92F16 /* MapKit.framework */; };
+
 		5BB947AC2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
 		5BB947AD2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
 		5BB947AE2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
 		5BB947AF2424F92200ED397A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB947AB2424F92200ED397A /* GoogleService-Info.plist */; };
+
 		B0FA2BEA88E43EF184EB4AA9 /* libPods-reLocation-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30049E62505F4270E036C11B /* libPods-reLocation-tvOSTests.a */; };
 		C7487A23CADAB87FBF2D58FC /* libPods-reLocation-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 019B6D448352C703E54556B3 /* libPods-reLocation-tvOS.a */; };
 		DA5DC3A978FFF4B40C570092 /* libPods-reLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D987390E5B3787731C28681D /* libPods-reLocation.a */; };
@@ -66,7 +70,12 @@
 		43F9312F1809348E78924C42 /* Pods-reLocationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocationTests.release.xcconfig"; path = "Target Support Files/Pods-reLocationTests/Pods-reLocationTests.release.xcconfig"; sourceTree = "<group>"; };
 		4479FB1BF394AD3C3E319083 /* Pods-reLocation-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocation-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-reLocation-tvOSTests/Pods-reLocation-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A366F4125618CFCEEC7A671 /* libPods-reLocationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reLocationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BB947AB2424F92200ED397A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+
+		5E848FBA2423D00500F92F16 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5E848FBC2423D01F00F92F16 /* reLocation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = reLocation.entitlements; path = reLocation/reLocation.entitlements; sourceTree = "<group>"; };
+		
+    5BB947AB2424F92200ED397A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+
 		A1E347ED6CB49FB4BF8FDF06 /* Pods-reLocationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocationTests.debug.xcconfig"; path = "Target Support Files/Pods-reLocationTests/Pods-reLocationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C6C7F42A6BF71314BEE186 /* Pods-reLocation-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLocation-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-reLocation-tvOSTests/Pods-reLocation-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D987390E5B3787731C28681D /* libPods-reLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reLocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E848FBB2423D00500F92F16 /* MapKit.framework in Frameworks */,
 				DA5DC3A978FFF4B40C570092 /* libPods-reLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +140,7 @@
 		13B07FAE1A68108700A75B9A /* reLocation */ = {
 			isa = PBXGroup;
 			children = (
+				5E848FBC2423D01F00F92F16 /* reLocation.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -144,6 +155,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E848FBA2423D00500F92F16 /* MapKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				D987390E5B3787731C28681D /* libPods-reLocation.a */,
@@ -235,6 +247,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				73A8BE4B7BD7C4E01EC7E3FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,6 +309,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 3L4RZ22BH5;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -461,6 +477,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73A8BE4B7BD7C4E01EC7E3FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-reLocation/Pods-reLocation-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reLocation/Pods-reLocation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C231F83924C8458A59D26307 /* [CP] Check Pods Manifest.lock */ = {
@@ -636,8 +670,10 @@
 			baseConfigurationReference = 2F4CAD8F49761B676F2C0AC2 /* Pods-reLocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = reLocation/reLocation.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 3L4RZ22BH5;
 				INFOPLIST_FILE = reLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -656,7 +692,9 @@
 			baseConfigurationReference = 1A37B7EC688A408E91727F19 /* Pods-reLocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = reLocation/reLocation.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3L4RZ22BH5;
 				INFOPLIST_FILE = reLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

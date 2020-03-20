@@ -121,6 +121,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    //def googleMapAPIKey = System.getenv("GOOGLE_MAP_API_KEY")
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -133,6 +134,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [googleMapAPIKey:"$System.env.GOOGLE_MAP_API_KEY"]
     }
     splits {
         abi {
