@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
@@ -49,28 +49,30 @@ class Map extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.mapContainer}>
-          <MapView
-            provider={PROVIDER_GOOGLE}
-            style={styles.map}
-            region={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.015,
-              longitudeDelta: 0.0121,
-            }}
-          />
+      <SafeAreaView>
+        <View style={styles.container}>
+          <View style={styles.mapContainer}>
+            <MapView
+              provider={PROVIDER_GOOGLE}
+              style={styles.map}
+              region={{
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.0121,
+              }}
+            />
+          </View>
+          <View>
+            <Text style={styles.textField}>My current location:</Text>
+            <Text style={styles.textField}> {this.state.latitude} </Text>
+            <Text style={styles.textField}> {this.state.longitude} </Text>
+            <Text style={styles.textField}> {this.state.error} </Text>
+            <Text style={styles.textField}> {this.state.address} </Text>
+            <Text style={styles.textField}> {this.state.error2} </Text>
+          </View>
         </View>
-        <View>
-          <Text style={styles.textField}>My current location:</Text>
-          <Text style={styles.textField}> {this.state.latitude} </Text>
-          <Text style={styles.textField}> {this.state.longitude} </Text>
-          <Text style={styles.textField}> {this.state.error} </Text>
-          <Text style={styles.textField}> {this.state.address} </Text>
-          <Text style={styles.textField}> {this.state.error2} </Text>
-        </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }

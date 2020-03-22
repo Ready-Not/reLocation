@@ -3,7 +3,7 @@ import {Router, Stack, Scene} from 'react-native-router-flux';
 import Login from './Login';
 import Signup from './Signup';
 
-class Route extends Component {
+class Welcome extends Component {
   render() {
     return (
       <Router hideNavBar={false}>
@@ -16,4 +16,4 @@ class Route extends Component {
   }
 }
 
-export default Route;
+export default Welcome;

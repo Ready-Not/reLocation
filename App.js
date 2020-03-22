@@ -15,20 +15,20 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
+import Welcome from './components/Welcome';
 import Map from './components/Map';
 import firebase from 'firebase';
-import Route from './components/Route';
+import 'react-native-gesture-handler';
+import {NavigationNativeContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
 class App extends Component {
+  constructor({navigation}) {
+    super({navigation});
+  }
   componentDidMount() {
     //I think once we figure out storing secrets, this entire object could be inside that folder and we could just import it here
     var firebaseConfig = {
@@ -46,19 +46,40 @@ class App extends Component {
     const db = firebase.firestore();
     db.settings({timestampsInSnapshots: true});
     auth.onAuthStateChanged(user => {
-      //this will tell us if a user is logged in. That info shoul persist, so i'm not sure we neeed this, but just in case!
+      //this will tell us if a user is logged in
       //i think we need to set up a redux link so that as soon as we configure firestore, we can immediately pass on that data and have it available to other pages
     });
   }
 
   render() {
-    return (
-      <>
-        <SafeAreaView>
-          <Map />
-        </SafeAreaView>
-      </>
-    );
+    //this first if statement will work once we have a user
+    if (!user.uid) {
+      return (
+        <NavigationNativeContainer>
+          <Stack.Navigator
+            screenOptions={{
+              gestureEnabled: true,
+              gestureDirection: 'horizontal',
+            }}
+            headerMode="float">
+            <Stack.Screen name="Welcome" component={Welcome} />
+          </Stack.Navigator>
+        </NavigationNativeContainer>
+      );
+    } else {
+      return (
+        <NavigationNativeContainer>
+          <Stack.Navigator
+            screenOptions={{
+              gestureEnabled: true,
+              gestureDirection: 'horizontal',
+            }}
+            headerMode="float">
+            <Stack.Screen name="Map" component={Map} />
+          </Stack.Navigator>
+        </NavigationNativeContainer>
+      );
+    }
   }
 }
 
