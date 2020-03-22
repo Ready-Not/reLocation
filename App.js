@@ -26,9 +26,11 @@ import {
 
 import Map from './components/Map';
 import firebase from 'firebase';
+import Route from './components/Route';
 
 class App extends Component {
   componentDidMount() {
+    //I think once we figure out storing secrets, this entire object could be inside that folder and we could just import it here
     var firebaseConfig = {
       apiKey: 'XXXXXXXXXXXXXX',
       authDomain: 'relocation-1ac3d.firebaseapp.com',
@@ -40,15 +42,22 @@ class App extends Component {
       measurementId: 'G-7HQ5Q3MTH5',
     };
     firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    db.settings({timestampsInSnapshots: true});
+    auth.onAuthStateChanged(user => {
+      //this will tell us if a user is logged in. That info shoul persist, so i'm not sure we neeed this, but just in case!
+      //i think we need to set up a redux link so that as soon as we configure firestore, we can immediately pass on that data and have it available to other pages
+    });
   }
 
   render() {
     return (
-      // <>
-      <SafeAreaView>
-        <Map />
-      </SafeAreaView>
-      // </>
+      <>
+        <SafeAreaView>
+          <Map />
+        </SafeAreaView>
+      </>
     );
   }
 }
