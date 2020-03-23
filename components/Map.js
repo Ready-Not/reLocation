@@ -23,11 +23,10 @@ class Map extends Component {
       address: 'no address',
     };
   }
-
   async getAddress() {
     let lat = this.state.latitude;
     let long = this.state.longitude;
-    Geocoder.from(37, -122)
+    Geocoder.from(lat, long)
       .then(json => {
         var addressComponent = json.results[0].address_components;
         let address = '';
@@ -39,7 +38,6 @@ class Map extends Component {
       })
       .catch(error => this.setState({error2: error}));
   }
-
   componentDidMount() {
     Geolocation.getCurrentPosition(
       position => {
@@ -53,11 +51,9 @@ class Map extends Component {
       {enableHighAccuracy: false, timeout: 20000, maximumAge: 1000},
     );
   }
-
   componentDidUpdate() {
     this.getAddress();
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -85,7 +81,6 @@ class Map extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
@@ -101,5 +96,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
 export default Map;
