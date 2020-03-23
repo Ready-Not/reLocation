@@ -16,7 +16,7 @@ import {
   StatusBar,
 } from 'react-native';
 import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
-
+import Config from 'react-native-config';
 import Welcome from './components/Welcome';
 import Map from './components/Map';
 import firebase from 'firebase';
@@ -31,17 +31,7 @@ class App extends Component {
   }
   componentDidMount() {
     //I think once we figure out storing secrets, this entire object could be inside that folder and we could just import it here
-    var firebaseConfig = {
-      apiKey: 'XXXXXXXXXXXXXX',
-      authDomain: 'relocation-1ac3d.firebaseapp.com',
-      databaseURL: 'https://relocation-1ac3d.firebaseio.com',
-      projectId: 'relocation-1ac3d',
-      storageBucket: 'relocation-1ac3d.appspot.com',
-      messagingSenderId: '658430192184',
-      appId: '1:658430192184:web:c6107a992d238aba7e14cd',
-      measurementId: 'G-7HQ5Q3MTH5',
-    };
-    firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(Config.FIREBASE_CONFIG);
     const auth = firebase.auth();
     const db = firebase.firestore();
     db.settings({timestampsInSnapshots: true});
