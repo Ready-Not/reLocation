@@ -4,7 +4,11 @@ import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
 
-Geocoder.init('KEYKEYKEYKEYKEYKEYKEY');
+
+import Config from 'react-native-config';
+
+Geocoder.init(Config.GOOGLE_MAPS_API_KEY);
+
 class Map extends Component {
   constructor(props) {
     super(props);
@@ -73,6 +77,8 @@ class Map extends Component {
           </View>
         </View>
       </SafeAreaView>
+
+        
     );
   }
 }
