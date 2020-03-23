@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,17 +24,34 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Map from './components/Map'
+import Map from './components/Map';
+import firebase from 'firebase';
 
-const App: () => React$Node = () => {
-  return (
-    <>
+class App extends Component {
+  componentWillMount() {
+    var firebaseConfig = {
+      apiKey: 'XXXXXXXXXXXXXX',
+      authDomain: 'relocation-1ac3d.firebaseapp.com',
+      databaseURL: 'https://relocation-1ac3d.firebaseio.com',
+      projectId: 'relocation-1ac3d',
+      storageBucket: 'relocation-1ac3d.appspot.com',
+      messagingSenderId: '658430192184',
+      appId: '1:658430192184:web:c6107a992d238aba7e14cd',
+      measurementId: 'G-7HQ5Q3MTH5',
+    };
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  render() {
+    return (
+      // <>
       <SafeAreaView>
         <Map />
       </SafeAreaView>
-    </>
-  );
-};
+      // </>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   scrollView: {
