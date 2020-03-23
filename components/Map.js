@@ -8,7 +8,9 @@ import Geolocation from '@react-native-community/geolocation';
 
 import Geocoder from 'react-native-geocoding';
 
-Geocoder.init("xxxxxxxxxxxxx");
+import Config from 'react-native-config';
+
+Geocoder.init(Config.GOOGLE_MAPS_API_KEY);
 
 class Map extends Component {
   constructor(props) {
@@ -17,9 +19,25 @@ class Map extends Component {
       latitude: null,
       longitude: null,
       error: null,
+      error2: null,
+      address: 'no address',
     };
   }
-
+  async getAddress() {
+    let lat = this.state.latitude;
+    let long = this.state.longitude;
+    Geocoder.from(lat, long)
+      .then(json => {
+        var addressComponent = json.results[0].address_components;
+        let address = '';
+        addressComponent.forEach(obj => {
+          address += ' ' + obj.short_name;
+        });
+        this.setState({address});
+        console.log(addressComponent);
+      })
+      .catch(error => this.setState({error2: error}));
+  }
   componentDidMount() {
     Geolocation.getCurrentPosition(
       position => {
@@ -33,7 +51,9 @@ class Map extends Component {
       {enableHighAccuracy: false, timeout: 20000, maximumAge: 1000},
     );
   }
-
+  componentDidUpdate() {
+    this.getAddress();
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -53,13 +73,14 @@ class Map extends Component {
           <Text style={styles.textField}>My current location:</Text>
           <Text style={styles.textField}> {this.state.latitude} </Text>
           <Text style={styles.textField}> {this.state.longitude} </Text>
-          <Text> {this.state.error} </Text>
+          <Text style={styles.textField}> {this.state.error} </Text>
+          <Text style={styles.textField}> {this.state.address} </Text>
+          <Text style={styles.textField}> {this.state.error2} </Text>
         </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
@@ -75,5 +96,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
 export default Map;
