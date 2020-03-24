@@ -31,11 +31,11 @@ class App extends Component {
     super({navigation});
   }
   componentDidMount() {
-    this.props.gotUser();
+    // this.props.gotUser();
   }
 
   render() {
-    const user = this.props.user;
+    // const user = this.props.user;
     if (!user) {
       return (
         <NavigationNativeContainer>
@@ -105,19 +105,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapState = state => {
-  return {
-    user: state.user,
-  };
-};
+// const mapState = state => {
+//   return {
+//     user: state.user,
+//   };
+// };
 
-const mapDispatch = dispatch => {
-  return {
-    gotUser: () => dispatch(gotUser()),
-  };
-};
+// const mapDispatch = dispatch => {
+//   return {
+//     gotUser: () => dispatch(gotUser()),
+//   };
+// };
 
-export default connect(
-  mapState,
-  mapDispatch,
-)(App);
+// export default connect(
+//   mapState,
+//   mapDispatch,
+// )(App);
+export default App

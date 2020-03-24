@@ -77,8 +77,6 @@ class Map extends Component {
           </View>
         </View>
       </SafeAreaView>
-
-        
     );
   }
 }
