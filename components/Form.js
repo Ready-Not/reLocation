@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {
   View,
   StyleSheet,
@@ -7,9 +8,7 @@ import {
   TouchableOpacity,
   Keyboard,
 } from 'react-native';
-import {auth} from 'firebase';
-
-//auth is a const declared in App.js that is the authentication from our firestore database, need to make sure it gets here, probably via props, but if we want to use a Redux store, a lot of this may end up changing over to there, so i'm not really doing anything with it here
+import {signUp, login} from '../store/user';
 
 class Form extends Component {
   constructor(props) {
@@ -22,19 +21,21 @@ class Form extends Component {
 
   saveData = async () => {
     const {first, last, email, password} = this.state;
+    const signupDetails = {
+      first,
+      last,
+      email,
+      password,
+    };
     if (this.props.type !== 'Login') {
-      // use auth to log in
-      const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      user.First = first;
-      user.Last = last;
+      this.props.signUp(signupDetails);
       Keyboard.dismiss();
       // eslint-disable-next-line no-alert
       alert(`Thank you for signing up, ${first}`);
       // this.textInput.clear()
     } else if (this.props.type === 'Login') {
-      const {user} = await auth.signInWithEmailAndPasswordd(email, password);
-      //side note: auth.signout()
-      this.textInput.clear()
+      this.props.login(email, password);
+      this.textInput.clear();
       if (!user) {
         // eslint-disable-next-line no-alert
         alert('Email or password does not exist!');
@@ -99,4 +100,20 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapState = state => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    login: (email, password) => dispatch(login(email, password)),
+    signUp: signupDetails => dispatch(signUp(signupDetails)),
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch,
+)(Form);
