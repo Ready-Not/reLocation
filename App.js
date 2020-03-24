@@ -18,10 +18,11 @@ import {
 import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
 import Config from 'react-native-config';
 import Welcome from './components/Welcome';
-import Map from './components/Map';
+import Notifications from './components/Notifications';
+import DataBaseTest from './components/DataBaseTest';
 import firebase from 'firebase';
 import 'react-native-gesture-handler';
-import {NavigationNativeContainer} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
@@ -31,47 +32,47 @@ class App extends Component {
   }
   componentDidMount() {
     //I think once we figure out storing secrets, this entire object could be inside that folder and we could just import it here
-    firebase.initializeApp(Config.FIREBASE_CONFIG);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    db.settings({timestampsInSnapshots: true});
-    auth.onAuthStateChanged(user => {
-      //this will tell us if a user is logged in
-      //i think we need to set up a redux link so that as soon as we configure firestore, we can immediately pass on that data and have it available to other pages
-    });
+    // firebase.initializeApp(Config.FIREBASE_CONFIG);
+    // const auth = firebase.auth();
+    // const db = firebase.firestore();
+    // db.settings({timestampsInSnapshots: true});
+    // auth.onAuthStateChanged(user => {
+    //   //this will tell us if a user is logged in
+    //   //i think we need to set up a redux link so that as soon as we configure firestore, we can immediately pass on that data and have it available to other pages
+    // });
   }
 
   render() {
     //this first if statement will work once we have a user
-    if (!user.uid) {
+    // if (!user.uid) {
+    //   return (
+    //     <NavigationNativeContainer>
+    //       <Stack.Navigator
+    //         screenOptions={{
+    //           gestureEnabled: true,
+    //           gestureDirection: 'horizontal',
+    //         }}
+    //         headerMode="float">
+    //         <Stack.Screen name="Welcome" component={Welcome} />
+    //       </Stack.Navigator>
+    //     </NavigationNativeContainer>
+    //   );
+    // } else {
       return (
-        <NavigationNativeContainer>
+        <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
               gestureEnabled: true,
               gestureDirection: 'horizontal',
             }}
             headerMode="float">
-            <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="DataBaseTest" component={DataBaseTest} />
           </Stack.Navigator>
-        </NavigationNativeContainer>
-      );
-    } else {
-      return (
-        <NavigationNativeContainer>
-          <Stack.Navigator
-            screenOptions={{
-              gestureEnabled: true,
-              gestureDirection: 'horizontal',
-            }}
-            headerMode="float">
-            <Stack.Screen name="Map" component={Map} />
-          </Stack.Navigator>
-        </NavigationNativeContainer>
+        </NavigationContainer>
       );
     }
   }
-}
+// }
 
 const styles = StyleSheet.create({
   scrollView: {
