@@ -1,13 +1,19 @@
 import firebase from 'firebase';
 import Config from 'react-native-config';
-firebase.initializeApp(Config.FIREBASE_CONFIG);
-const auth = firebase.auth();
-const db = firebase.firestore();
-db.settings({timestampsInSnapshots: true});
+const app = firebase.initializeApp({
+  apiKey: Config.FIREBASE_CONFIG,
+  authDomain: "relocation-1ac3d.firebaseapp.com",
+  databaseURL: "https://relocation-1ac3d.firebaseio.com",
+  projectId: "relocation-1ac3d",
+  storageBucket: "relocation-1ac3d.appspot.com",
+  messagingSenderId: "658430192184",
+  appId: "1:658430192184:web:c6107a992d238aba7e14cd",
+  measurementId: "G-7HQ5Q3MTH5"
+});
+// const auth = app.auth();
+export const db = app.database();
+// db.settings({timestampsInSnapshots: true});
 import AsyncStorage from '@react-native-community/async-storage';
-// auth.onAuthStateChanged(user => {
-//   //this will tell us if a user is logged in
-// });
 
 const GET_USER = 'GET_USER';
 const REMOVE_USER = 'REMOVE_USER';
@@ -34,7 +40,7 @@ export const gotUser = () => async dispatch => {
 
 export const login = (email, password) => async dispatch => {
   try {
-    const {user} = await auth.signInWithEmailAndPasswordd(email, password);
+    const {user} = await db.signInWithEmailAndPasswordd(email, password);
     if (user) {
       await AsyncStorage.setItem('user', user);
       gotUser();
@@ -48,7 +54,7 @@ export const login = (email, password) => async dispatch => {
 export const signUp = signupDetails => async dispatch => {
   try {
     const {first, last, email, password} = signupDetails;
-    const {user} = await auth.createUserWithEmailAndPassword(email, password);
+    const {user} = await db.createUserWithEmailAndPassword(email, password);
     user.First = first;
     user.Last = last;
     await AsyncStorage.setItem('user', user);
@@ -61,7 +67,7 @@ export const signUp = signupDetails => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await auth.signout();
+    await db.signout();
     await AsyncStorage.removeUser('user');
     dispatch(removeUser());
     // history.push('/login') figure out Navigation equivalent to this

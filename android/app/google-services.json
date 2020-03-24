@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "658430192184",
+    "firebase_url": "https://relocation-1ac3d.firebaseio.com",
+    "project_id": "relocation-1ac3d",
+    "storage_bucket": "relocation-1ac3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658430192184:android:c0da69d5991e442b7e14cd",
+        "android_client_info": {
+          "package_name": "com.relocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658430192184-srh8hde10mrbgapgaru836fdikvrr5di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOob1YFMcopzka3X5M-YfDQCnNAHBlnW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658430192184-srh8hde10mrbgapgaru836fdikvrr5di.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "658430192184-aqp5sv2elhb4veptjsnvqs8s093b1nmf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.reLocation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

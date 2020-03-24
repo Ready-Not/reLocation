@@ -25,44 +25,58 @@ import 'react-native-gesture-handler';
 import {NavigationNativeContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
+import {db} from './store/user';
 
 class App extends Component {
-  constructor({navigation}) {
-    super({navigation});
+  constructor() {
+    super();
+    this.state = {};
   }
   componentDidMount() {
     // this.props.gotUser();
+    db.ref('/users').on('value', querySnapShot => {
+      let data = querySnapShot.val() ? querySnapShot.val() : {};
+      let users = {...data};
+      console.log(users);
+      this.setState({
+        users: users,
+      });
+    });
   }
-
   render() {
-    // const user = this.props.user;
-    if (!user) {
-      return (
-        <NavigationNativeContainer>
-          <Stack.Navigator
-            screenOptions={{
-              gestureEnabled: true,
-              gestureDirection: 'horizontal',
-            }}
-            headerMode="float">
-            <Stack.Screen name="Welcome" component={Welcome} />
-          </Stack.Navigator>
-        </NavigationNativeContainer>
-      );
-    } else {
-      return (
-        <NavigationNativeContainer>
-          <Stack.Navigator
-            screenOptions={{
-              gestureEnabled: true,
-              gestureDirection: 'horizontal',
-            }}
-            headerMode="float">
-            <Stack.Screen name="Map" component={Map} />
-          </Stack.Navigator>
-        </NavigationNativeContainer>
-      );
-    }
+    return (
+      <View>
+        <Text>{this.state.users}</Text>
+      </View>
+    );
+    // // const user = this.props.user;
+    // if (!user) {
+    //   return (
+    //     <NavigationNativeContainer>
+    //       <Stack.Navigator
+    //         screenOptions={{
+    //           gestureEnabled: true,
+    //           gestureDirection: 'horizontal',
+    //         }}
+    //         headerMode="float">
+    //         <Stack.Screen name="Welcome" component={Welcome} />
+    //       </Stack.Navigator>
+    //     </NavigationNativeContainer>
+    //   );
+    // } else {
+    //   return (
+    //     <NavigationNativeContainer>
+    //       <Stack.Navigator
+    //         screenOptions={{
+    //           gestureEnabled: true,
+    //           gestureDirection: 'horizontal',
+    //         }}
+    //         headerMode="float">
+    //         <Stack.Screen name="Map" component={Map} />
+    //       </Stack.Navigator>
+    //     </NavigationNativeContainer>
+    //   );
+    // }
   }
 }
 
